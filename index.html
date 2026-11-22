@@ -1,12 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    
 </head>
 <body>
-    <h1>Vive la vie</h1>
-    <h2>Vive moi</h2>
+    <div id="menu-principale">
+        <h1 id="Titre">Vert ville</h1>
+        <button type="button" id="Bouton-jouer">Jouer</button>        
+    </div>
+    <header class="stats-groupe">
+        <p>Budget: <span id="Budget"> </span></p>
+        <p>Energie: <span id="Energie"> </span></p>
+        <p>Ecologie: <span id="Ecologie"> </span></p>
+        <p>Satisfaction: <span id="Satisfaction"> </span></p>
+        <p>Jour: <span id="Jour"> </span></p>
+        <p>Ville: <span id="Ville"> </span></p>
+        <p>Temperature: <span id="temperature"> </span></p>
+        <div class="meteo-groupe">
+            <p>Meteo: <span id="meteo"></span></p>
+        </div>
+        </header>
+        <nav class="actions-bar" >
+            <div id="construction">
+                <button type="button" id="Construire">Construire</button>
+                <div id="menu-choix">
+                    <button type="button" id="park">Park</button>
+                    <button type="button" id="maison">maison</button>
+                    <button type="button" id="eolienne">Eolienne</button>
+                </div>
+            </div>
+            <button type="button" id="jourSuivant">jour suivant</button>
+        </nav>
+            
+
+        <div id="grid_container">
+            
+        </div>
+    <script src="script.js"></script>
 </body>
 </html>
