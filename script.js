@@ -228,7 +228,6 @@ boutSuivant.addEventListener("click", () => {
     let revenusTaxes = (maisonsAlimenteesElec + maisonsAlimenteesEau) * 15;
     let revenusCommerces = commercesAlimentes * 60;
 
-    let consommationParMaison = 5;
 
     if (tempActuelleGlobal > 28) {
         consommationParMaison = 8; 
@@ -349,7 +348,7 @@ boutCommerce.addEventListener("click", () => {
     batimentEnCours = "commerce";
 });
 
-// Fonction pour récupérer la météo de Paris (Latitude: 48.85, Longitude: 2.35)
+
 function chargerMeteo() {
     const url = "https://api.open-meteo.com/v1/forecast?latitude=4.9224&longitude=-52.3136&current_weather=true";
 
@@ -359,7 +358,6 @@ function chargerMeteo() {
             let tempActuelle = data.current_weather.temperature;
             let codeMeteo = data.current_weather.weathercode;
 
-            // ON SAUVEGARDE ICI
             tempActuelleGlobal = tempActuelle;
             codeMeteoGlobal = codeMeteo;
 
@@ -375,17 +373,9 @@ function chargerMeteo() {
 function traduireCodeMeteo(code) {
     switch (code) {
         case 0: return "☀️ Ensoleillé";
-        case 1:
-        case 2:
         case 3: return "☁️ Nuageux / Éclaircies";
-        case 51:
-        case 53:
         case 55: return "🌧️ Averse tropicale";
-        case 61:
-        case 63:
         case 65: return "🌧️ Pluie intense";
-        case 95:
-        case 96:
         case 99: return "⚡ Orage tropical";
         default: return "🌡️ Temps tropical";
     }
