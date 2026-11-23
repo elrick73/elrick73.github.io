@@ -230,7 +230,7 @@ boutSuivant.addEventListener("click", () => {
 
 
     if (tempActuelleGlobal > 28) {
-        let consommationParMaison = 8; 
+        consommationParMaison = 8; 
     }
 
     argentIni = argentIni + (revenusTaxes - depensesEntretien) + revenusCommerces;
