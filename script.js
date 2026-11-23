@@ -229,17 +229,13 @@ boutSuivant.addEventListener("click", () => {
     let revenusCommerces = commercesAlimentes * 60;
 
 
-    if (tempActuelleGlobal > 28) {
-        consommationParMaison = 8; 
-    }
-
     argentIni = argentIni + (revenusTaxes - depensesEntretien) + revenusCommerces;
     Budget.textContent = argentIni;
 
     let productionEnergie = (nombreEolienne + nombreEau) * 15;
     
     // Consommation de base par maison (ex: 4 au lieu de 5)
-    consommationParMaison = 4;
+    let consommationParMaison = 4;
 
     if (tempActuelleGlobal > 28) {
         consommationParMaison = 8; // Forte hausse en cas de chaleur tropicale
