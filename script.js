@@ -11,6 +11,7 @@ const menuChoix = document.getElementById("menu-choix");
 const menuPrincipale = document.getElementById("menu-principale");
 const modalGameOver = document.getElementById("game-over");
 const boutRecommencer = document.getElementById("bouton-recommencer");
+const Population = document.getElementById("Population");
 
 const boutJouer = document.getElementById("Bouton-jouer");
 const boutConstruire = document.getElementById("Construire");
@@ -24,6 +25,7 @@ const boutEau = document.getElementById("eau");
 const modalChargement = document.getElementById("modal-chargement");
 const btnOui = document.getElementById("btn-oui");
 const btnNon = document.getElementById("btn-non");
+
 
 let nombrePark = 0;
 let listeParks = [];
@@ -40,6 +42,8 @@ let codeMeteoGlobal = 0;
 let modeConstruction = false;
 let batimentEnCours = null;
 
+let populationActuelle = 0;
+Population.textContent = populationActuelle;
 let argentIni = 1000;
 Budget.textContent = argentIni;
 let energieIni = 100;
@@ -144,6 +148,8 @@ btnOui.addEventListener("click", () => {
 
     listeParks = JSON.parse(localStorage.getItem("listeParks")) || [];
     nombrePark = parseInt(localStorage.getItem("nombrePark")) || 0;
+    populationActuelle = parseInt(localStorage.getItem("populationActuelle")) || 0;
+    Population.textContent = populationActuelle;
     
     redessinerGrille();
     modalChargement.classList.add("inactif");
@@ -209,6 +215,12 @@ boutSuivant.addEventListener("click", () => {
         }
     }
 
+
+    // Une maison est pleinement active si elle a l'électricité ET l'eau
+    // On peut estimer la population selon le minimum des deux ou les maisons connectées
+    let maisonsParfaitementDesservies = Math.min(maisonsAlimenteesElec, maisonsAlimenteesEau);
+    populationActuelle = maisonsParfaitementDesservies * 4;
+    Population.textContent = populationActuelle;
     let depensesEntretien = (nombreMaison * 10) + (nombreCommerce * 25) + (nombreEolienne * 30) + (nombreEau * 25) + (nombrePark * 5);
     let revenusTaxes = (maisonsAlimenteesElec + maisonsAlimenteesEau) * 15;
     let revenusCommerces = commercesAlimentes * 60;
@@ -240,11 +252,6 @@ boutSuivant.addEventListener("click", () => {
     if (nombreMaison > maisonsAlimenteesEau) {
         satisfactionIni -= (nombreMaison - maisonsAlimenteesEau) * 5;
     }
-    document.getElementById("val-elec").textContent = maisonsAlimenteesElec;
-    document.getElementById("val-maisons-total").textContent = nombreMaison;
-    document.getElementById("val-eau").textContent = maisonsAlimenteesEau;
-    document.getElementById("val-commerces").textContent = commercesAlimentes;
-
     // Mise à jour de l'affichage des stats
     document.getElementById("val-elec").textContent = maisonsAlimenteesElec;
     document.getElementById("val-maisons-total").textContent = nombreMaison;
@@ -265,6 +272,8 @@ boutSuivant.addEventListener("click", () => {
     localStorage.setItem("nombreCommerce", nombreCommerce);
     localStorage.setItem("nombreEau", nombreEau);
     localStorage.setItem("nombrePark", nombrePark);
+    localStorage.setItem("populationActuelle", populationActuelle);
+    
 
     chargerMeteo();
     if (argentIni <= 0) {

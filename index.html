@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="menu-principale">
-        <h1 id="Titre">Vert ville</h1>
+        <h1 id="Titre">Ville verte</h1>
         <button type="button" id="Bouton-jouer">Jouer</button>        
     </div>
     <div id="modal-chargement" class="inactif">
@@ -30,7 +30,7 @@
     </div>
     <div id="panneau-stats">
         <h3>📊 Statistiques de la ville</h3>
-        <p>⚡ Maisons électrifiées : <span id="val-elec">0</span> / <span id="val-maisons-total">0</span></p>
+        <p>⚡ Maisons allimentées : <span id="val-elec">0</span> / <span id="val-maisons-total">0</span></p>
         <p>💧 Maisons desservies en eau : <span id="val-eau">0</span></p>
         <p>🏬 Commerces actifs : <span id="val-commerces">0</span></p>
     </div>
@@ -42,6 +42,7 @@
         <p>Jour: <span id="Jour"> </span></p>
         <p>Ville: <span id="Ville"> </span></p>
         <p>Temperature: <span id="temperature"> </span></p>
+        <p>Population : <span id="Population"></span></p>
         <div class="meteo-groupe">
             <p>Meteo: <span id="meteo"></span></p>
         </div>
@@ -50,11 +51,11 @@
             <div id="construction">
                 <button type="button" id="Construire">Construire</button>
                 <div id="menu-choix">
-                    <button type="button" id="park">Park</button>
-                    <button type="button" id="maison">maison</button>
-                    <button type="button" id="eolienne">Eolienne</button>
-                    <button type="button" id="commerce">Commerce</button>
-                    <button type="button" id="eau">Eau 💧</button>
+                    <button type="button" id="park">Park: 60€</button>
+                    <button type="button" id="maison">Maison: 100€</button>
+                    <button type="button" id="eolienne">Eolienne: 200€</button>
+                    <button type="button" id="commerce">Commerce: 250€</button>
+                    <button type="button" id="eau">Eau: 180€</button>
                 </div>
             </div>
             <button type="button" id="jourSuivant">Jour suivant</button>
