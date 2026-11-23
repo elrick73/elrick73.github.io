@@ -13,6 +13,27 @@
         <h1 id="Titre">Vert ville</h1>
         <button type="button" id="Bouton-jouer">Jouer</button>        
     </div>
+    <div id="modal-chargement" class="inactif">
+        <div class="modal-contenu">
+            <h2>Reprendre la partie ?</h2>
+            <p>Une sauvegarde de votre ville a été trouvée.</p>
+            <button type="button" id="btn-oui">Oui, continuer</button>
+            <button type="button" id="btn-non">Non, nouvelle partie</button>
+        </div>
+    </div>
+    <div id="game-over" class="inactif">
+        <div class="modal-contenu">
+            <h2>💸 Faillite !</h2>
+            <p>Votre ville n'a plus de d'argent. C'est la faillite...</p>
+            <button type="button" id="bouton-recommencer">Recommencer</button>
+        </div>
+    </div>
+    <div id="panneau-stats">
+        <h3>📊 Statistiques de la ville</h3>
+        <p>⚡ Maisons électrifiées : <span id="val-elec">0</span> / <span id="val-maisons-total">0</span></p>
+        <p>💧 Maisons desservies en eau : <span id="val-eau">0</span></p>
+        <p>🏬 Commerces actifs : <span id="val-commerces">0</span></p>
+    </div>
     <header class="stats-groupe">
         <p>Budget: <span id="Budget"> </span></p>
         <p>Energie: <span id="Energie"> </span></p>
@@ -32,9 +53,12 @@
                     <button type="button" id="park">Park</button>
                     <button type="button" id="maison">maison</button>
                     <button type="button" id="eolienne">Eolienne</button>
+                    <button type="button" id="commerce">Commerce</button>
+                    <button type="button" id="eau">Eau 💧</button>
                 </div>
             </div>
-            <button type="button" id="jourSuivant">jour suivant</button>
+            <button type="button" id="jourSuivant">Jour suivant</button>
+            <button type="button" id="demolir">Demolir</button>
         </nav>
             
 
