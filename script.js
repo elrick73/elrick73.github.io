@@ -234,17 +234,32 @@ boutSuivant.addEventListener("click", () => {
         consommationParMaison = 8; 
     }
 
-    
-
     argentIni = argentIni + (revenusTaxes - depensesEntretien) + revenusCommerces;
     Budget.textContent = argentIni;
 
+    let productionEnergie = (nombreEolienne + nombreEau) * 15;
+    
+    // Consommation de base par maison (ex: 4 au lieu de 5)
+    let consommationParMaison = 4;
 
-    energieIni += (nombreEolienne + nombreEau) * 10;
+    if (tempActuelleGlobal > 28) {
+        consommationParMaison = 8; // Forte hausse en cas de chaleur tropicale
+    }
+
+    energieIni += productionEnergie;
     energieIni -= nombreMaison * consommationParMaison; 
     Energie.textContent = energieIni;
 
-    ecologieIni += (nombrePark + nombreEolienne)*0.5;
+    
+    let bonusEcologie = (nombrePark * 2) + (nombreEolienne * 1);
+    let malusEcologie = nombreCommerce * 1.5;
+
+    
+    ecologieIni = ecologieIni + bonusEcologie - malusEcologie;
+
+    if (ecologieIni > 100) ecologieIni = 100;
+    if (ecologieIni < 0) ecologieIni = 0;
+
     Ecologie.textContent = ecologieIni;
     
 
