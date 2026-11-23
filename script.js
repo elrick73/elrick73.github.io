@@ -12,8 +12,11 @@ const menuPrincipale = document.getElementById("menu-principale");
 const modalGameOver = document.getElementById("game-over");
 const boutRecommencer = document.getElementById("bouton-recommencer");
 const Population = document.getElementById("Population");
+const modalVictoire = document.getElementById("game-victoire");
+
 
 const boutJouer = document.getElementById("Bouton-jouer");
+const boutRecommencerVictoire = document.getElementById("bouton-recommencer-victoire");
 const boutConstruire = document.getElementById("Construire");
 const boutDemolir = document.getElementById("demolir");
 const boutSuivant = document.getElementById("jourSuivant");
@@ -279,9 +282,18 @@ boutSuivant.addEventListener("click", () => {
     if (argentIni <= 0) {
         modalGameOver.classList.remove("inactif");
     }
+    // Vérification de la condition de victoire
+    if (jourSuiv >= 100 && satisfactionIni > 60 && populationActuelle > 60) {
+        modalVictoire.classList.remove("inactif");
+    }
 
 });
 
+
+boutRecommencerVictoire.addEventListener("click", () => {
+    localStorage.clear();
+    location.reload();
+});
 
 boutJouer.addEventListener("click", () => {
     menuPrincipale.classList.toggle("inactif");
